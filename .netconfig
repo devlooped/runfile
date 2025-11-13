@@ -47,9 +47,7 @@
 	weak
 [file ".github/actions/dotnet/action.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/actions/dotnet/action.yml
-	sha = f2b690ce307acb76c5b8d7faec1a5b971a93653e
-	etag = 27ea11baa2397b3ec9e643a935832da97719c4e44215cfd135c49cad4c29373f
-	weak
+	skip
 [file ".github/dependabot.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/dependabot.yml
 	sha = e733294084fb3e75d517a2e961e87df8faae7dc6
