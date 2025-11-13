@@ -1,10 +1,10 @@
-<!-- include ../../readme.md#runcs -->
-<!-- #runcs -->
+<!-- include ../../readme.md#runfile -->
+<!-- #runfile -->
 Run C# code programs from git repos on GitHub, GitLab and Azure DevOps.
 
 ```
 Usage:
-    [dnx] runcs [--aot] [--alias ALIAS] <repoRef> [<appArgs>...]
+    [dnx] runfile [--aot] [--alias ALIAS] <repoRef> [<appArgs>...]
 
 Arguments:
     <REPO_REF>  Reference to remote file to run, with format [host/]owner/repo[@ref][:path]
@@ -29,10 +29,10 @@ Options:
 Example:
 
 ```
-dnx runcs kzu/runcs@v1:run.cs dotnet rocks
+dnx runfile kzu/runfile@v1:run.cs dotnet rocks
 ```
 
-View [source](https://github.com/kzu/runcs/blob/v1/run.cs):
+View [source](https://github.com/kzu/runfile/blob/v1/run.cs):
 
 ```csharp
 #:package Spectre.Console@*
@@ -49,8 +49,8 @@ AnsiConsole.MarkupLine($"Hello world from [green]dnx[/] [yellow]gist[/] :rocket:
 When running different files from the same repo+ref, the download will be performed only once.
 The last download etag is used to avoid downloading on each run.
 
-<!-- #runcs -->
-<!-- ../../readme.md#runcs -->
+<!-- #runfile -->
+<!-- ../../readme.md#runfile -->
 <!-- include https://github.com/devlooped/sponsors/raw/main/footer.md -->
 # Sponsors 
 

@@ -3,26 +3,39 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
-    <AssemblyName>runcs</AssemblyName>
+    <AssemblyName>runfile</AssemblyName>
     <RootNamespace>Devlooped</RootNamespace>
 
-    <PackageId>runcs</PackageId>
-    <ToolCommandName>runcs</ToolCommandName>
+    <PackageId>runfile</PackageId>
+    <Description>Run C# code from remote locations using: dnx runfile [host/]owner/repo[@ref][:path]</Description>
+
+    <ToolCommandName>runfile</ToolCommandName>
     <PackAsTool>true</PackAsTool>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
     <PackageTags>dotnet dotnet-tool</PackageTags>
 
-    <Description>Run C# code from remote locations using: dnx runcs [host/]owner/repo[@ref][:path]</Description>
+    <RuntimeIdentifier Condition="$(BuildingInsideVisualStudio) == 'true'">win-x64</RuntimeIdentifier>
+    <RuntimeIdentifiers>
+      linux-x64;
+      linux-arm64;
+      osx-arm64;
+      osx-x64;
+      win-x64;
+      win-arm64
+    </RuntimeIdentifiers>
+    <PublishSelfContained>false</PublishSelfContained>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="DotNetConfig" Version="1.2.0" />
     <PackageReference Include="DotNetConfig.Configuration" Version="1.2.0" />
     <PackageReference Include="Devlooped.CredentialManager" Version="42.42.517-main" Aliases="Devlooped" />
+    <PackageReference Include="Avalonia" Version="11.3.4" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.4" />
     <PackageReference Include="git-credential-manager" Version="2.6.1" IncludeAssets="tools" GeneratePathProperty="true" />
     <PackageReference Include="LibGit2Sharp" Version="0.31.0" />
     <PackageReference Include="Spectre.Console" Version="0.50.0" />
-    <PackageReference Include="ThisAssembly" Version="2.0.14" PrivateAssets="all"/>
+    <PackageReference Include="ThisAssembly" Version="2.0.14" PrivateAssets="all" />
     <PackageReference Include="System.CommandLine" Version="2.0.0-rc.1.25451.107" />
   </ItemGroup>
 
