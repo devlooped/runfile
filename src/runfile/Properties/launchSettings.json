@@ -5,23 +5,23 @@
     },
     "args": {
       "commandName": "Project",
-      "commandLineArgs": "--aot kzu/runcs@v1 dotnet rocks"
+      "commandLineArgs": "--aot kzu/runfile@v1 dotnet rocks"
     },
     "github": {
       "commandName": "Project",
-      "commandLineArgs": "kzu/runcs@main:program.cs"
+      "commandLineArgs": "kzu/runfile@main:program.cs"
     },
     "gitlab": {
       "commandName": "Project",
-      "commandLineArgs": "gitlab.com/kzu/runcs@main:program.cs"
+      "commandLineArgs": "gitlab.com/kzu/runfile"
     },
     "devops": {
       "commandName": "Project",
-      "commandLineArgs": "dev.azure.com/kzu/runcs/runcs@77d857042555c4e60afdb6c41256b2820d6ca14c"
+      "commandLineArgs": "dev.azure.com/kzu/runfile/runfile@77d857042555c4e60afdb6c41256b2820d6ca14c"
     },
     "bitbucket": {
       "commandName": "Project",
-      "commandLineArgs": "bitbucket.org/kzu/runcs@dev:program.cs"
+      "commandLineArgs": "bitbucket.org/kzu/runfile@dev:program.cs"
     },
     "vault2secrets": {
       "commandName": "Project",

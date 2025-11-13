@@ -1,67 +1,67 @@
 # Changelog
 
-## [v0.5.1](https://github.com/devlooped/runcs/tree/v0.5.1) (2025-09-25)
+## [v0.5.1](https://github.com/devlooped/runfile/tree/v0.5.1) (2025-09-25)
 
-[Full Changelog](https://github.com/devlooped/runcs/compare/v0.5.0...v0.5.1)
+[Full Changelog](https://github.com/devlooped/runfile/compare/v0.5.0...v0.5.1)
 
-## [v0.5.0](https://github.com/devlooped/runcs/tree/v0.5.0) (2025-09-25)
+## [v0.5.0](https://github.com/devlooped/runfile/tree/v0.5.0) (2025-09-25)
 
-[Full Changelog](https://github.com/devlooped/runcs/compare/v0.4.0...v0.5.0)
-
-:sparkles: Implemented enhancements:
-
-- Add support for creating aliases for refs [\#18](https://github.com/devlooped/runcs/pull/18) (@kzu)
-
-## [v0.4.0](https://github.com/devlooped/runcs/tree/v0.4.0) (2025-09-24)
-
-[Full Changelog](https://github.com/devlooped/runcs/compare/v0.3.1...v0.4.0)
+[Full Changelog](https://github.com/devlooped/runfile/compare/v0.4.0...v0.5.0)
 
 :sparkles: Implemented enhancements:
 
-- Update to latest .NET 10 which receives the file without 'run' [\#17](https://github.com/devlooped/runcs/pull/17) (@kzu)
-- Default to non-AOT for runcs to broaden run-ability [\#15](https://github.com/devlooped/runcs/pull/15) (@kzu)
+- Add support for creating aliases for refs [\#18](https://github.com/devlooped/runfile/pull/18) (@kzu)
+
+## [v0.4.0](https://github.com/devlooped/runfile/tree/v0.4.0) (2025-09-24)
+
+[Full Changelog](https://github.com/devlooped/runfile/compare/v0.3.1...v0.4.0)
+
+:sparkles: Implemented enhancements:
+
+- Update to latest .NET 10 which receives the file without 'run' [\#17](https://github.com/devlooped/runfile/pull/17) (@kzu)
+- Default to non-AOT for runfile to broaden run-ability [\#15](https://github.com/devlooped/runfile/pull/15) (@kzu)
 
 :hammer: Other:
 
-- Azure DevOps projects and repos with spaces not supported [\#12](https://github.com/devlooped/runcs/issues/12)
+- Azure DevOps projects and repos with spaces not supported [\#12](https://github.com/devlooped/runfile/issues/12)
 
 :twisted_rightwards_arrows: Merged:
 
-- Update to latest SLNX format [\#14](https://github.com/devlooped/runcs/pull/14) (@kzu)
-- Add support for Azure DevOps projects and repos with spaces [\#13](https://github.com/devlooped/runcs/pull/13) (@alexwiese)
+- Update to latest SLNX format [\#14](https://github.com/devlooped/runfile/pull/14) (@kzu)
+- Add support for Azure DevOps projects and repos with spaces [\#13](https://github.com/devlooped/runfile/pull/13) (@alexwiese)
 
-## [v0.3.1](https://github.com/devlooped/runcs/tree/v0.3.1) (2025-08-30)
+## [v0.3.1](https://github.com/devlooped/runfile/tree/v0.3.1) (2025-08-30)
 
-[Full Changelog](https://github.com/devlooped/runcs/compare/v0.3.0...v0.3.1)
+[Full Changelog](https://github.com/devlooped/runfile/compare/v0.3.0...v0.3.1)
 
-## [v0.3.0](https://github.com/devlooped/runcs/tree/v0.3.0) (2025-08-30)
+## [v0.3.0](https://github.com/devlooped/runfile/tree/v0.3.0) (2025-08-30)
 
-[Full Changelog](https://github.com/devlooped/runcs/compare/v0.2.0...v0.3.0)
-
-:sparkles: Implemented enhancements:
-
-- Unify implementation across gist/runcs [\#7](https://github.com/devlooped/runcs/pull/7) (@kzu)
-- Add support for downloading and running Azure DevOps too [\#6](https://github.com/devlooped/runcs/pull/6) (@kzu)
-
-## [v0.2.0](https://github.com/devlooped/runcs/tree/v0.2.0) (2025-08-29)
-
-[Full Changelog](https://github.com/devlooped/runcs/compare/v0.1.2...v0.2.0)
-
-## [v0.1.2](https://github.com/devlooped/runcs/tree/v0.1.2) (2025-08-28)
-
-[Full Changelog](https://github.com/devlooped/runcs/compare/v0.1.1...v0.1.2)
-
-## [v0.1.1](https://github.com/devlooped/runcs/tree/v0.1.1) (2025-08-28)
-
-[Full Changelog](https://github.com/devlooped/runcs/compare/v0.1.0...v0.1.1)
+[Full Changelog](https://github.com/devlooped/runfile/compare/v0.2.0...v0.3.0)
 
 :sparkles: Implemented enhancements:
 
-- Fail if explicit gist file path not found [\#3](https://github.com/devlooped/runcs/pull/3) (@kzu)
+- Unify implementation across gist/runfile [\#7](https://github.com/devlooped/runfile/pull/7) (@kzu)
+- Add support for downloading and running Azure DevOps too [\#6](https://github.com/devlooped/runfile/pull/6) (@kzu)
 
-## [v0.1.0](https://github.com/devlooped/runcs/tree/v0.1.0) (2025-08-28)
+## [v0.2.0](https://github.com/devlooped/runfile/tree/v0.2.0) (2025-08-29)
 
-[Full Changelog](https://github.com/devlooped/runcs/compare/ce016575c85c447e1ebc5d2fa109908c92d89f5d...v0.1.0)
+[Full Changelog](https://github.com/devlooped/runfile/compare/v0.1.2...v0.2.0)
+
+## [v0.1.2](https://github.com/devlooped/runfile/tree/v0.1.2) (2025-08-28)
+
+[Full Changelog](https://github.com/devlooped/runfile/compare/v0.1.1...v0.1.2)
+
+## [v0.1.1](https://github.com/devlooped/runfile/tree/v0.1.1) (2025-08-28)
+
+[Full Changelog](https://github.com/devlooped/runfile/compare/v0.1.0...v0.1.1)
+
+:sparkles: Implemented enhancements:
+
+- Fail if explicit gist file path not found [\#3](https://github.com/devlooped/runfile/pull/3) (@kzu)
+
+## [v0.1.0](https://github.com/devlooped/runfile/tree/v0.1.0) (2025-08-28)
+
+[Full Changelog](https://github.com/devlooped/runfile/compare/ce016575c85c447e1ebc5d2fa109908c92d89f5d...v0.1.0)
 
 
 

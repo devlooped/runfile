@@ -5,7 +5,7 @@
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <LangVersion>Preview</LangVersion>
     <RestoreSources>https://api.nuget.org/v3/index.json;https://pkg.kzu.app/index.json</RestoreSources>
-    <ProjectName>runcs</ProjectName>
+    <ProjectName>runfile</ProjectName>
   </PropertyGroup>
   <ItemGroup>
     <ProjectProperty Include="ProjectName" />

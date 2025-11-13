@@ -18,7 +18,7 @@ if (args.Any(x => x == "--aot"))
 }
 
 var config = Config.Build(Config.GlobalLocation);
-if (args.Length > 0 && config.GetString("runcs", args[0]) is string aliased)
+if (args.Length > 0 && config.GetString("runfile", args[0]) is string aliased)
     args = [aliased, .. args[1..]];
 
 // Set alias and remove from args if present
@@ -56,7 +56,7 @@ if (args.Length == 0 || !RemoteRef.TryParse("gist.github.com/" + args[0], out va
 }
 
 if (alias != null)
-    config = config.SetString("runcs", alias, location.ToString());
+    config = config.SetString("runfile", alias, location.ToString());
 
 // Create the dispatcher on the main thread. This is required
 // for some platform UI services such as macOS that mandates

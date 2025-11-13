@@ -1,18 +1,18 @@
-![Icon](https://raw.githubusercontent.com/devlooped/runcs/main/assets/img/icon-32.png) dnx runcs
+![Icon](https://raw.githubusercontent.com/devlooped/runfile/main/assets/img/icon-32.png) dnx runfile
 ============
 
-[![Version](https://img.shields.io/nuget/vpre/runcs.svg?color=royalblue)](https://www.nuget.org/packages/runcs)
-[![Downloads](https://img.shields.io/nuget/dt/runcs.svg?color=green)](https://www.nuget.org/packages/runcs)
-[![License](https://img.shields.io/github/license/devlooped/runcs.svg?color=blue)](https://github.com/devlooped/runcs/blob/main/license.txt)
-[![Build](https://github.com/devlooped/runcs/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/devlooped/runcs/actions/workflows/build.yml)
+[![Version](https://img.shields.io/nuget/vpre/runfile.svg?color=royalblue)](https://www.nuget.org/packages/runfile)
+[![Downloads](https://img.shields.io/nuget/dt/runfile.svg?color=green)](https://www.nuget.org/packages/runfile)
+[![License](https://img.shields.io/github/license/devlooped/runfile.svg?color=blue)](https://github.com/devlooped/runfile/blob/main/license.txt)
+[![Build](https://github.com/devlooped/runfile/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/devlooped/runfile/actions/workflows/build.yml)
 
-## dnx runcs
-<!-- #runcs -->
+## dnx runfile
+<!-- #runfile -->
 Run C# code programs from git repos on GitHub, GitLab and Azure DevOps.
 
 ```
 Usage:
-    [dnx] runcs [--aot] [--alias ALIAS] <repoRef> [<appArgs>...]
+    [dnx] runfile [--aot] [--alias ALIAS] <repoRef> [<appArgs>...]
 
 Arguments:
     <REPO_REF>  Reference to remote file to run, with format [host/]owner/repo[@ref][:path]
@@ -37,10 +37,10 @@ Options:
 Example:
 
 ```
-dnx runcs kzu/runcs@v1:run.cs dotnet rocks
+dnx runfile kzu/runfile@v1:run.cs dotnet rocks
 ```
 
-View [source](https://github.com/kzu/runcs/blob/v1/run.cs):
+View [source](https://github.com/kzu/runfile/blob/v1/run.cs):
 
 ```csharp
 #:package Spectre.Console@*
@@ -57,7 +57,7 @@ AnsiConsole.MarkupLine($"Hello world from [green]dnx[/] [yellow]gist[/] :rocket:
 When running different files from the same repo+ref, the download will be performed only once.
 The last download etag is used to avoid downloading on each run.
 
-<!-- #runcs -->
+<!-- #runfile -->
 
 ## dnx gist
 

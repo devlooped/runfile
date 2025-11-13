@@ -11,7 +11,7 @@ public static class RemoteRefExtensions
         public string EnsureTempPath() => Directory.CreateUserDirectory(location.TempPath);
     }
 
-    /// <summary>Obtains the temporary directory root, e.g., <c>/tmp/dotnet/runcs/</c>.</summary>
+    /// <summary>Obtains the temporary directory root, e.g., <c>/tmp/dotnet/runfile/</c>.</summary>
     static string GetTempRoot()
     {
         // We want a location where permissions are expected to be restricted to the current user.
@@ -19,9 +19,9 @@ public static class RemoteRefExtensions
             ? Path.GetTempPath()
             : Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
-        return Directory.CreateUserDirectory(Path.Join(directory, "dotnet", "runcs"));
+        return Directory.CreateUserDirectory(Path.Join(directory, "dotnet", "runfile"));
     }
 
-    /// <summary>Obtains a specific temporary path in a subdirectory of the temp root, e.g., <c>/tmp/dotnet/runcs/{name}</c>.</summary>
+    /// <summary>Obtains a specific temporary path in a subdirectory of the temp root, e.g., <c>/tmp/dotnet/runfile/{name}</c>.</summary>
     public static string GetTempSubpath(params string[] name) => Directory.CreateUserDirectory(Path.Join([GetTempRoot(), .. name]));
 }
