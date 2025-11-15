@@ -74,6 +74,12 @@ jobs:
           dotnet tool update -g dotnet-retest
           dotnet retest -- --no-build
 
+      - name: 🙏 publish
+        shell: pwsh
+        run: |
+          $rids = dotnet msbuild src/runfile/runfile.csproj -getproperty:RuntimeIdentifiers 
+          $rids | %{ $_.Split(';') } | %{ $_.Trim() } | ? { $_ } | %{ dotnet publish -r $_ } 
+
       - name: 📦 pack
         run: dotnet pack --no-build -m:1 -bl:pack.binlog
 
