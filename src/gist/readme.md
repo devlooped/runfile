@@ -28,8 +28,8 @@ Options:
 ```
 
 > [!TIP]
-> The gist does not need to be public. In that case, the same authentication 
-> used by your local `git` will be used to access the gist, via the Git Credential Manager.
+> The gist does not need to be public. Private repos will leverage the same authentication 
+> used by your local `git` to access the file, via the Git Credential Manager.
 
 Example:
 
@@ -53,6 +53,17 @@ The last download etag is used to avoid downloading on each run.
 <!-- #gist -->
 <!-- ../../readme.md#gist -->
 <!-- include https://github.com/devlooped/.github/raw/main/osmf.md -->
+## Open Source Maintenance Fee
+
+To ensure the long-term sustainability of this project, users of this package who generate 
+revenue must pay an [Open Source Maintenance Fee](https://opensourcemaintenancefee.org). 
+While the source code is freely available under the terms of the [License](license.txt), 
+this package and other aspects of the project require [adherence to the Maintenance Fee](osmfeula.txt).
+
+To pay the Maintenance Fee, [become a Sponsor](https://github.com/sponsors/devlooped) at the proper 
+OSMF tier. A single fee covers all of [Devlooped packages](https://www.nuget.org/profiles/Devlooped).
+
+<!-- https://github.com/devlooped/.github/raw/main/osmf.md -->
 <!-- include https://github.com/devlooped/sponsors/raw/main/footer.md -->
 # Sponsors 
 
