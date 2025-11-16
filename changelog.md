@@ -1,5 +1,17 @@
 # Changelog
 
+## [v1.0.0-alpha](https://github.com/devlooped/runfile/tree/v1.0.0-alpha) (2025-11-16)
+
+[Full Changelog](https://github.com/devlooped/runfile/compare/v0.5.1...v1.0.0-alpha)
+
+:sparkles: Implemented enhancements:
+
+- Rename to runfile, switch to platform-specific packages [\#33](https://github.com/devlooped/runfile/pull/33) (@kzu)
+
+:twisted_rightwards_arrows: Merged:
+
+- Adopt OSMF [\#35](https://github.com/devlooped/runfile/pull/35) (@kzu)
+
 ## [v0.5.1](https://github.com/devlooped/runfile/tree/v0.5.1) (2025-09-25)
 
 [Full Changelog](https://github.com/devlooped/runfile/compare/v0.5.0...v0.5.1)
@@ -19,7 +31,7 @@
 :sparkles: Implemented enhancements:
 
 - Update to latest .NET 10 which receives the file without 'run' [\#17](https://github.com/devlooped/runfile/pull/17) (@kzu)
-- Default to non-AOT for runfile to broaden run-ability [\#15](https://github.com/devlooped/runfile/pull/15) (@kzu)
+- Default to non-AOT for runcs to broaden run-ability [\#15](https://github.com/devlooped/runfile/pull/15) (@kzu)
 
 :hammer: Other:
 
@@ -40,7 +52,7 @@
 
 :sparkles: Implemented enhancements:
 
-- Unify implementation across gist/runfile [\#7](https://github.com/devlooped/runfile/pull/7) (@kzu)
+- Unify implementation across gist/runcs [\#7](https://github.com/devlooped/runfile/pull/7) (@kzu)
 - Add support for downloading and running Azure DevOps too [\#6](https://github.com/devlooped/runfile/pull/6) (@kzu)
 
 ## [v0.2.0](https://github.com/devlooped/runfile/tree/v0.2.0) (2025-08-29)
