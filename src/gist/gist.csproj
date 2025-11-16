@@ -42,6 +42,7 @@
 
   <ItemGroup>
     <ProjectProperty Include="ToolCommandName" />
+    <None Include="..\..\osmfeula.txt" Link="osmfeula.txt" Pack="true" PackagePath="OSMFEULA.txt" />
   </ItemGroup>
 
   <ItemGroup>
