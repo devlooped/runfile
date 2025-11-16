@@ -128,3 +128,8 @@
 	sha = 8c27185b33465e0f729ea308e077f2287a160de9
 	etag = 50acc7051f270c94cd087b6b63c223b5290e00d0c05477a3c231de3e4d582065
 	weak
+[file "osmfeula.txt"]
+	url = https://github.com/devlooped/.github/blob/main/osmfeula.txt
+	sha = 666a2a7c315f72199c418f11482a950fc69a8901
+	etag = 91ea15c07bfd784036c6ca931f5b2df7e9767b8367146d96c79caef09d63899f
+	weak
