@@ -2,9 +2,14 @@
 ============
 
 [![Version](https://img.shields.io/nuget/vpre/runfile.svg?color=royalblue)](https://www.nuget.org/packages/runfile)
-[![Downloads](https://img.shields.io/nuget/dt/runfile.svg?color=green)](https://www.nuget.org/packages/runfile)
-[![License](https://img.shields.io/github/license/devlooped/runfile.svg?color=blue)](https://github.com/devlooped/runfile/blob/main/license.txt)
-[![Build](https://github.com/devlooped/runfile/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/devlooped/runfile/actions/workflows/build.yml)
+[![Downloads](https://img.shields.io/nuget/dt/runfile.svg?color=darkmagenta)](https://www.nuget.org/packages/runfile)
+[![EULA](https://img.shields.io/badge/EULA-OSMF-blue?labelColor=black&color=C9FF30)](osmfeula.txt)
+[![OSS](https://img.shields.io/github/license/devlooped/oss.svg?color=blue)](license.txt) 
+
+Run C# code programs from git repos on GitHub (or gists), GitLab and Azure DevOps, 
+whether public or private, from specific commits, branches or tags (or default branch).
+
+<!-- include https://github.com/devlooped/.github/raw/main/osmf.md -->
 
 ## dnx runfile
 <!-- #runfile -->
