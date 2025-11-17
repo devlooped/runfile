@@ -31,6 +31,14 @@
       "commandName": "Project",
       "commandLineArgs": "clean",
       "workingDirectory": "C:\\Code\\WhatsApp"
+    },
+    "damian": {
+      "commandName": "Project",
+      "commandLineArgs": "https://github.com/DamianEdwards/runfile/blob/main/flat/filepath.cs"
+    },
+    "gitlab url": {
+      "commandName": "Project",
+      "commandLineArgs": "https://gitlab.com/kzu/runfile/-/blob/main/program.cs?ref_type=heads"
     }
   }
 }

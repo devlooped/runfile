@@ -46,4 +46,6 @@
     <ProjectReference Include="..\Core\Core.csproj" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="https://www.schemastore.org/loobin-1.0.json" /></VisualStudio></ProjectExtensions>
+
 </Project>

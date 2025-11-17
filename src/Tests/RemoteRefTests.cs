@@ -475,4 +475,61 @@ public class RemoteRefTests
         Assert.False(success);
         Assert.Null(result);
     }
+
+    [Theory]
+    [InlineData("https://github.com/owner/repo/blob/main/file.txt", "github.com", "owner", "repo", "main", "file.txt")]
+    [InlineData("https://github.com/microsoft/vscode/blob/main/src/vs/workbench/workbench.main.ts", "github.com", "microsoft", "vscode", "main", "src/vs/workbench/workbench.main.ts")]
+    [InlineData("https://github.com/octocat/Hello-World/blob/master/README", "github.com", "octocat", "Hello-World", "master", "README")]
+    [InlineData("https://github.com/owner/repo/blob/develop/path/to/file.cs", "github.com", "owner", "repo", "develop", "path/to/file.cs")]
+    [InlineData("https://github.com/dotnet/runtime/blob/v8.0.0/src/libraries/System.Console/src/System/Console.cs", "github.com", "dotnet", "runtime", "v8.0.0", "src/libraries/System.Console/src/System/Console.cs")]
+    public void TryParse_GitHubBlobUrls_WorksCorrectly(string input, string expectedHost, string expectedOwner, string expectedRepo, string expectedRef, string expectedPath)
+    {
+        var success = RemoteRef.TryParse(input, out var result);
+
+        Assert.True(success);
+        Assert.NotNull(result);
+        Assert.Equal(expectedHost, result.Host);
+        Assert.Equal(expectedOwner, result.Owner);
+        Assert.Equal(expectedRepo, result.Repo);
+        Assert.Equal(expectedRef, result.Ref);
+        Assert.Equal(expectedPath, result.Path);
+        Assert.NotEmpty(result.TempPath);
+    }
+
+    [Theory]
+    [InlineData("https://gist.github.com/username/123456789", "gist.github.com", "username", "123456789", null, null)]
+    [InlineData("https://gist.github.com/octocat/6cad326836d38bd6", "gist.github.com", "octocat", "6cad326836d38bd6", null, null)]
+    [InlineData("https://gist.github.com/devlooped/abc123def", "gist.github.com", "devlooped", "abc123def", null, null)]
+    public void TryParse_GistUrls_WorksCorrectly(string input, string expectedHost, string expectedOwner, string expectedRepo, string? expectedRef, string? expectedPath)
+    {
+        var success = RemoteRef.TryParse(input, out var result);
+
+        Assert.True(success);
+        Assert.NotNull(result);
+        Assert.Equal(expectedHost, result.Host);
+        Assert.Equal(expectedOwner, result.Owner);
+        Assert.Equal(expectedRepo, result.Repo);
+        Assert.Equal(expectedRef, result.Ref);
+        Assert.Equal(expectedPath, result.Path);
+        Assert.NotEmpty(result.TempPath);
+    }
+
+    [Theory]
+    [InlineData("https://gitlab.com/owner/repo/-/blob/main/file.txt", "gitlab.com", "owner", "repo", "main", "file.txt")]
+    [InlineData("https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/assets/javascripts/main.js", "gitlab.com", "gitlab-org", "gitlab", "master", "app/assets/javascripts/main.js")]
+    [InlineData("https://gitlab.com/inkscape/inkscape/-/blob/1.3.x/src/ui/widget/color-scales.cpp", "gitlab.com", "inkscape", "inkscape", "1.3.x", "src/ui/widget/color-scales.cpp")]
+    [InlineData("https://gitlab.com/fdroid/fdroidclient/-/blob/master/app/src/main/java/org/fdroid/fdroid/installer/Installer.java", "gitlab.com", "fdroid", "fdroidclient", "master", "app/src/main/java/org/fdroid/fdroid/installer/Installer.java")]
+    public void TryParse_GitLabBlobUrls_WorksCorrectly(string input, string expectedHost, string expectedOwner, string expectedRepo, string expectedRef, string expectedPath)
+    {
+        var success = RemoteRef.TryParse(input, out var result);
+
+        Assert.True(success);
+        Assert.NotNull(result);
+        Assert.Equal(expectedHost, result.Host);
+        Assert.Equal(expectedOwner, result.Owner);
+        Assert.Equal(expectedRepo, result.Repo);
+        Assert.Equal(expectedRef, result.Ref);
+        Assert.Equal(expectedPath, result.Path);
+        Assert.NotEmpty(result.TempPath);
+    }
 }
