@@ -28,7 +28,12 @@ var alias = parsed.GetValue(option);
 if (alias != null)
     args = [.. parsed.UnmatchedTokens];
 
-if (args.Length == 0 || !RemoteRef.TryParse("gist.github.com/" + args[0], out var location))
+RemoteRef? location = default;
+var validRef = args.Length > 0 &&
+    (RemoteRef.TryParse("gist.github.com/" + args[0], out location) ||
+    RemoteRef.TryParse(args[0], out location));
+
+if (args.Length == 0 || !validRef || location is null)
 {
     AnsiConsole.MarkupLine(
         $"""

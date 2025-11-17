@@ -15,7 +15,25 @@ public partial record RemoteRef(string Owner, string Repo, string? Ref, string? 
 
     public static bool TryParse(string value, [NotNullWhen(true)] out RemoteRef? remote)
     {
-        Match GetMatch(string input)
+        // Convenience case for some common URL formats pasted from browser
+        if (Uri.TryCreate(value, UriKind.Absolute, out var uri))
+        {
+            var path = uri.AbsolutePath.Split('/', StringSplitOptions.RemoveEmptyEntries);
+            if (uri.Host == "github.com" && path is [var ghOwner, var ghRepo, "blob", var ghReference, ..])
+            {
+                value = $"{uri.Host}/{ghOwner}/{ghRepo}@{ghReference}:{string.Join('/', path[4..])}";
+            }
+            else if (uri.Host == "gist.github.com" && path is [var gistOwner, var gistId, ..])
+            {
+                value = $"{uri.Host}/{gistOwner}/{gistId}";
+            }
+            else if (uri.Host == "gitlab.com" && path is [var glOwner, var glRepo, "-", "blob", var glReference, ..])
+            {
+                value = $"{uri.Host}/{glOwner}/{glRepo}@{glReference}:{string.Join('/', path[5..])}";
+            }
+        }
+
+        static Match GetMatch(string input)
         {
             // Try Azure DevOps first since it is more specific
             var match = ParseAzureDevOpsExp().Match(input);
