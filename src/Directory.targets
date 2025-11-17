@@ -1,0 +1,3 @@
+<Project>
+  <Import Project="Avalonia.targets" Condition="'$(ImportAvalonia)' != 'false'"/>
+</Project>

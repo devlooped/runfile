@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <ItemGroup>
+    <PackageReference Include="git-credential-manager" Version="2.6.1" IncludeAssets="tools" GeneratePathProperty="true" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(OutputType)' == 'Exe'">
+    <PackageReference Include="Avalonia" Version="11.1.3" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.1.3" />
+    <PackageReference Include="Avalonia.Skia" Version="11.1.3" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.1.3" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Pkggit-credential-manager)' != ''">
+    <Reference Include="Atlassian.Bitbucket" HintPath="$(Pkggit-credential-manager)\tools\net8.0\any\Atlassian.Bitbucket.dll" />
+    <Reference Include="Microsoft.AzureRepos" HintPath="$(Pkggit-credential-manager)\tools\net8.0\any\Microsoft.AzureRepos.dll" />
+    <Reference Include="GitHub" HintPath="$(Pkggit-credential-manager)\tools\net8.0\any\GitHub.dll" />
+    <Reference Include="GitLab" HintPath="$(Pkggit-credential-manager)\tools\net8.0\any\GitLab.dll" />
+    <Reference Include="gcmcore" HintPath="$(Pkggit-credential-manager)\tools\net8.0\any\gcmcore.dll" />
+  </ItemGroup>
+
+  <Target Name="CheckAvalonia" AfterTargets="Build">
+    <PropertyGroup>
+      <Update Condition="'$(CI)' != 'true'">--update</Update>
+    </PropertyGroup>
+    <Exec Command="dotnet run avalonia.cs $(MSBuildThisFileFullPath) $(Update)" WorkingDirectory="$(MSBuildThisFileDirectory)" StandardErrorImportance="high" IgnoreStandardErrorWarningFormat="true" StandardOutputImportance="low" ConsoleToMSBuild="true" ContinueOnError="true">
+      <Output TaskParameter="ConsoleOutput" PropertyName="AvaloniaOutput" />
+      <Output TaskParameter="ExitCode" PropertyName="ExitCode" />
+    </Exec>
+    <Message Importance="high" Text="$(AvaloniaOutput)" Condition="'$(ExitCode)' != '0'" />
+    <Error Text="$(AvaloniaOutput)" Condition="'$(ExitCode)' != '0' And '$(ContinueOnError)' != 'true'" />
+  </Target>
+
+</Project>
