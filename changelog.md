@@ -1,5 +1,9 @@
 # Changelog
 
+## [v1.0.0](https://github.com/devlooped/runfile/tree/v1.0.0) (2025-11-17)
+
+[Full Changelog](https://github.com/devlooped/runfile/compare/v1.0.0-alpha...v1.0.0)
+
 ## [v1.0.0-alpha](https://github.com/devlooped/runfile/tree/v1.0.0-alpha) (2025-11-16)
 
 [Full Changelog](https://github.com/devlooped/runfile/compare/v0.5.1...v1.0.0-alpha)
