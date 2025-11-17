@@ -139,8 +139,9 @@ The CI feed is `https://pkg.kzu.app/index.json`.
 
 The versioning scheme for packages is:
 
-- PR builds: *42.42.[run]-pr*`[NUMBER]`
-- Branch builds: *42.42.[run]-*`[BRANCH]`
+- PR builds: *42.42.0-pr*`[NUMBER]`.`[run]`
+- Branch builds: *42.42.0-*`[BRANCH]`.`[run]`
+- Main builds: *42.42.[run]-main*
 
 <!-- include https://github.com/devlooped/sponsors/raw/main/footer.md -->
 # Sponsors 
