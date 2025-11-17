@@ -36,7 +36,7 @@
     <PackageReference Include="LibGit2Sharp" Version="0.31.0" />
     <PackageReference Include="Spectre.Console" Version="0.54.0" />
     <PackageReference Include="ThisAssembly" Version="2.1.2" PrivateAssets="all" />
-    <PackageReference Include="System.CommandLine" Version="2.0.0-rc.1.25451.107" />
+    <PackageReference Include="System.CommandLine" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(Pkggit-credential-manager)' != ''">
