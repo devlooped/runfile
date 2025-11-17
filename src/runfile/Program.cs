@@ -46,7 +46,7 @@ if (args.Length == 0 || !RemoteRef.TryParse(args[0], out var location))
                         * gitlab.com/kzu/sandbox@main:run.cs  (all explicit parts)
                         * kzu/sandbox                         (implied host github.com, ref and path defaults)
                   
-                        Can be an alias previously set with --alias.
+                        If --alias was used in a previous run, the alias can be used instead of the full ref.
 
             [bold]<appArgs>[/]   Arguments passed to the C# program that is being run. 
 

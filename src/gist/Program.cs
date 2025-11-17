@@ -44,8 +44,8 @@ if (args.Length == 0 || !RemoteRef.TryParse("gist.github.com/" + args[0], out va
                         * kzu/0ac826dc7de666546aaedd38e5965381                 (tip commit and program.cs or first .cs file)
                         * kzu/0ac826dc7de666546aaedd38e5965381@d8079cf:run.cs  (explicit commit and file path)
                         
-                        Can be an alias previously set with --alias.
-                                
+                        If --alias was used in a previous run, the alias can be used instead of the full ref.
+                                        
             [bold]<appArgs>[/]   Arguments passed to the C# program that is being run. 
 
         Options:
