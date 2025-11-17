@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.0.1](https://github.com/devlooped/runfile/tree/v1.0.1) (2025-11-17)
+
+[Full Changelog](https://github.com/devlooped/runfile/compare/v1.0.0...v1.0.1)
+
+:sparkles: Implemented enhancements:
+
+- Allow full gist and blob urls to be used to run [\#46](https://github.com/devlooped/runfile/pull/46) (@kzu)
+
 ## [v1.0.0](https://github.com/devlooped/runfile/tree/v1.0.0) (2025-11-17)
 
 [Full Changelog](https://github.com/devlooped/runfile/compare/v1.0.0-alpha...v1.0.0)
