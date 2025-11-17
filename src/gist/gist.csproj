@@ -29,9 +29,6 @@
   <ItemGroup>
     <PackageReference Include="Spectre.Console" Version="0.54.0" />
     <PackageReference Include="ThisAssembly" Version="2.1.2" PrivateAssets="all" />
-    <PackageReference Include="Avalonia" Version="11.3.4" />
-    <PackageReference Include="Avalonia.Desktop" Version="11.3.4" />
-    <PackageReference Include="git-credential-manager" Version="2.6.1" IncludeAssets="tools" GeneratePathProperty="true" />
     <PackageReference Include="System.CommandLine" Version="2.0.0" />
   </ItemGroup>
 
