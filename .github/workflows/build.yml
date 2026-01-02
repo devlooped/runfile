@@ -70,9 +70,7 @@ jobs:
         run: dotnet build -m:1 -bl:build.binlog
 
       - name: 🧪 test
-        run: |
-          dotnet tool update -g dotnet-retest
-          dotnet retest -- --no-build
+        run: dnx --yes retest -- --no-build
 
       - name: 🙏 publish
         shell: pwsh
