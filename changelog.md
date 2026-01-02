@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.0.2](https://github.com/devlooped/runfile/tree/v1.0.2) (2026-01-02)
+
+[Full Changelog](https://github.com/devlooped/runfile/compare/v1.0.1...v1.0.2)
+
+:twisted_rightwards_arrows: Merged:
+
+- Add more explicit parameters to avalonia runfile [\#48](https://github.com/devlooped/runfile/pull/48) (@kzu)
+
 ## [v1.0.1](https://github.com/devlooped/runfile/tree/v1.0.1) (2025-11-17)
 
 [Full Changelog](https://github.com/devlooped/runfile/compare/v1.0.0...v1.0.1)
