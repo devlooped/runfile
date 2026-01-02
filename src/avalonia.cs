@@ -2,6 +2,10 @@
 #:package ConsoleAppFramework@5.*
 #:property Nullable=enable
 #:property ImportAvalonia=false
+#:property PublishAot=false
+#:property IsPackable=false
+#:property ImportDirectoryBuildProps=false
+#:property ImportDirectoryBuildTargets=false
 
 using System;
 using System.IO;

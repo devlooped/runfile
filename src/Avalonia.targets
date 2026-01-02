@@ -24,7 +24,7 @@
     <PropertyGroup>
       <Update Condition="'$(CI)' != 'true'">--update</Update>
     </PropertyGroup>
-    <Exec Command="dotnet run avalonia.cs $(MSBuildThisFileFullPath) $(Update)" WorkingDirectory="$(MSBuildThisFileDirectory)" StandardErrorImportance="high" IgnoreStandardErrorWarningFormat="true" StandardOutputImportance="low" ConsoleToMSBuild="true" ContinueOnError="true">
+    <Exec Command="dotnet run --file avalonia.cs $(MSBuildThisFileFullPath) $(Update)" WorkingDirectory="$(MSBuildThisFileDirectory)" StandardErrorImportance="high" IgnoreStandardErrorWarningFormat="true" StandardOutputImportance="low" ConsoleToMSBuild="true" ContinueOnError="true">
       <Output TaskParameter="ConsoleOutput" PropertyName="AvaloniaOutput" />
       <Output TaskParameter="ExitCode" PropertyName="ExitCode" />
     </Exec>
