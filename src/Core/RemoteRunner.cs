@@ -9,20 +9,24 @@ public class RemoteRunner(RemoteRef location, string toolName, Config? config = 
 {
     Config config = config ?? Config.Build(Config.GlobalLocation);
 
-    public async Task<int> RunAsync(string[] args, bool aot)
+    public async Task<int> RunAsync(string[] args, bool aot, bool force = false)
     {
-        var etag = config.GetString(toolName, location.ToString(), "etag");
-        if (etag != null && Directory.Exists(location.TempPath))
+        // Only use cached ETag if not forcing a fresh download
+        if (!force)
         {
-            if (etag.StartsWith("W/\"", StringComparison.OrdinalIgnoreCase) && !etag.EndsWith('"'))
-                etag += '"';
+            var etag = config.GetString(toolName, location.ToString(), "etag");
+            if (etag != null && Directory.Exists(location.TempPath))
+            {
+                if (etag.StartsWith("W/\"", StringComparison.OrdinalIgnoreCase) && !etag.EndsWith('"'))
+                    etag += '"';
 
-            location = location with { ETag = etag };
+                location = location with { ETag = etag };
+            }
+
+            if (config.TryGetString(toolName, location.ToString(), "uri", out var url) &&
+                Uri.TryCreate(url, UriKind.Absolute, out var uri))
+                location = location with { ResolvedUri = uri };
         }
-
-        if (config.TryGetString(toolName, location.ToString(), "uri", out var url) &&
-            Uri.TryCreate(url, UriKind.Absolute, out var uri))
-            location = location with { ResolvedUri = uri };
 
         if (DotnetMuxer.Path is null)
         {
