@@ -7,7 +7,7 @@ Run C# code programs from git repos on GitHub, GitLab and Azure DevOps.
 
 ```
 Usage:
-    [dnx] runfile [--aot] [--alias ALIAS] <repoRef> [<appArgs>...]
+    [dnx] runfile [OPTIONS] <repoRef> [<appArgs>...]
 
 Arguments:
     <REPO_REF>  Reference to remote file to run, with format [host/]owner/repo[@ref][:path]
@@ -20,13 +20,15 @@ Arguments:
                 * gitlab.com/kzu/sandbox@main:run.cs  (all explicit parts)
                 * kzu/sandbox                         (implied host github.com, ref and path defaults)
 
-                Can be an alias previously set with --alias.
+                Can be an alias previously set with --dnx-alias.
 
     <appArgs>   Arguments passed to the C# program that is being run.
 
 Options:
-    --aot         (optional) Enable dotnet AOT defaults for run file.cs. Defaults to false.
-    --alias ALIAS (optional) Assign an alias on first usage which can be used instead of the full ref.
+    --dnx-aot         Enable dotnet AOT defaults for run file.cs. Defaults to false.
+    --dnx-alias ALIAS Assign an alias on first usage which can be used instead of the full ref.
+    --dnx-debug       Launch the debugger before running.
+    --dnx-force       Force download, skipping ETag checking.
 ```
 
 Example:

@@ -1,4 +1,5 @@
 ﻿using System.CommandLine;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 using Devlooped;
@@ -11,20 +12,36 @@ if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
 
 // Default PublishAot=false since it severely limits the code that can run (i.e. no reflection, STJ even)
 var aot = false;
-if (args.Any(x => x == "--aot"))
+if (args.Any(x => x is "--aot" or "--dnx-aot"))
 {
     aot = true;
-    args = [.. args.Where(x => x != "--aot")];
+    args = [.. args.Where(x => x is not "--aot" and not "--dnx-aot")];
+}
+
+// --dnx-debug to launch debugger before running
+var debug = false;
+if (args.Any(x => x == "--dnx-debug"))
+{
+    debug = true;
+    args = [.. args.Where(x => x != "--dnx-debug")];
+}
+
+// --dnx-force to skip ETag checking
+var force = false;
+if (args.Any(x => x == "--dnx-force"))
+{
+    force = true;
+    args = [.. args.Where(x => x != "--dnx-force")];
 }
 
 var config = Config.Build(Config.GlobalLocation);
 if (args.Length > 0 && config.GetString("runfile", args[0]) is string aliased)
     args = [aliased, .. args[1..]];
 
-// Set alias and remove from args if present
-var option = new Option<string?>("--alias");
-var parsed = new RootCommand() { Options = { option } }.Parse(args);
-var alias = parsed.GetValue(option);
+// Set alias and remove from args if present (--alias or --dnx-alias)
+var aliasOption = new Option<string?>(["--alias", "--dnx-alias"]);
+var parsed = new RootCommand() { Options = { aliasOption } }.Parse(args);
+var alias = parsed.GetValue(aliasOption);
 if (alias != null)
     args = [.. parsed.UnmatchedTokens];
 
@@ -38,7 +55,7 @@ if (args.Length == 0 || !validRef || location is null)
     AnsiConsole.MarkupLine(
         $"""
         Usage:
-            [grey][[dnx]][/] [lime]{ThisAssembly.Project.ToolCommandName}[/] [grey][[--aot]][/] [grey][[--alias ALIAS]][/] [bold]<gistRef>[/] [grey italic][[<appArgs>...]][/]
+            [grey][[dnx]][/] [lime]{ThisAssembly.Project.ToolCommandName}[/] [grey][[OPTIONS]][/] [bold]<gistRef>[/] [grey italic][[<appArgs>...]][/]
 
         Arguments:
             [bold]<GIST_REF>[/]  Reference to gist file to run, with format [yellow]owner/gist[[@commit]][[:path]][/]
@@ -49,19 +66,25 @@ if (args.Length == 0 || !validRef || location is null)
                         * kzu/0ac826dc7de666546aaedd38e5965381                 (tip commit and program.cs or first .cs file)
                         * kzu/0ac826dc7de666546aaedd38e5965381@d8079cf:run.cs  (explicit commit and file path)
                         
-                        If --alias was used in a previous run, the alias can be used instead of the full ref.
+                        If --dnx-alias was used in a previous run, the alias can be used instead of the full ref.
                                         
             [bold]<appArgs>[/]   Arguments passed to the C# program that is being run. 
 
         Options:
-            [bold]--aot[/]         (optional) Enable dotnet AOT defaults for run file.cs. Defaults to false.
-            [bold]--alias[/] ALIAS (optional) Assign an alias on first usage which can be used instead of the full ref.
+            [bold]--dnx-aot[/]         Enable dotnet AOT defaults for run file.cs. Defaults to false.
+            [bold]--dnx-alias[/] ALIAS Assign an alias on first usage which can be used instead of the full ref.
+            [bold]--dnx-debug[/]       Launch the debugger before running.
+            [bold]--dnx-force[/]       Force download, skipping ETag checking.
         """);
     return;
 }
 
 if (alias != null)
     config = config.SetString("runfile", alias, location.ToString());
+
+// Launch debugger if --dnx-debug was specified
+if (debug)
+    Debugger.Launch();
 
 // Create the dispatcher on the main thread. This is required
 // for some platform UI services such as macOS that mandates
@@ -73,7 +96,7 @@ Dispatcher.Initialize();
 // to process the dispatcher's job queue.
 var main = Task
     .Run(() => new RemoteRunner(location, ThisAssembly.Project.ToolCommandName, config)
-    .RunAsync(args[1..], aot))
+    .RunAsync(args[1..], aot, force))
     .ContinueWith(t =>
     {
         Dispatcher.MainThread.Shutdown();

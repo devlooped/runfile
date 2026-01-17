@@ -7,7 +7,7 @@
 Run C# code programs from GitHub gists.
 
 ```
-Usage: [dnx] gist [--aot] [--alias ALIAS] <gistRef> [<appArgs>...]
+Usage: [dnx] gist [OPTIONS] <gistRef> [<appArgs>...]
 
 Arguments:
     <GIST_REF>  Reference to gist file to run, with format owner/gist[@commit][:path]
@@ -18,13 +18,15 @@ Arguments:
                 * kzu/0ac826dc7de666546aaedd38e5965381                 (tip commit and program.cs or first .cs file)
                 * kzu/0ac826dc7de666546aaedd38e5965381@d8079cf:run.cs  (explicit commit and file path)
 
-                Can be an alias previously set with --alias.
+                Can be an alias previously set with --dnx-alias.
 
     <appArgs>   Arguments passed to the C# program that is being run.
 
 Options:
-    --aot         (optional) Enable dotnet AOT defaults for run file.cs. Defaults to false.
-    --alias ALIAS (optional) Assign an alias on first usage which can be used instead of the full ref.
+    --dnx-aot         Enable dotnet AOT defaults for run file.cs. Defaults to false.
+    --dnx-alias ALIAS Assign an alias on first usage which can be used instead of the full ref.
+    --dnx-debug       Launch the debugger before running.
+    --dnx-force       Force download, skipping ETag checking.
 ```
 
 > [!TIP]
