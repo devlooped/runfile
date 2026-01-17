@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.0.3](https://github.com/devlooped/runfile/tree/v1.0.3) (2026-01-17)
+
+[Full Changelog](https://github.com/devlooped/runfile/compare/v1.0.2...v1.0.3)
+
+:sparkles: Implemented enhancements:
+
+- Add --dnx-\* prefixed options with --dnx-debug and --dnx-force [\#51](https://github.com/devlooped/runfile/pull/51) (@Copilot)
+
 ## [v1.0.2](https://github.com/devlooped/runfile/tree/v1.0.2) (2026-01-02)
 
 [Full Changelog](https://github.com/devlooped/runfile/compare/v1.0.1...v1.0.2)
