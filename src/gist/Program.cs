@@ -39,7 +39,8 @@ if (args.Length > 0 && config.GetString("runfile", args[0]) is string aliased)
     args = [aliased, .. args[1..]];
 
 // Set alias and remove from args if present (--alias or --dnx-alias)
-var aliasOption = new Option<string?>(["--alias", "--dnx-alias"]);
+var aliasOption = new Option<string?>("--alias");
+aliasOption.Aliases.Add("--dnx-alias");
 var parsed = new RootCommand() { Options = { aliasOption } }.Parse(args);
 var alias = parsed.GetValue(aliasOption);
 if (alias != null)
