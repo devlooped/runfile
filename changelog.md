@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.0.4](https://github.com/devlooped/runfile/tree/v1.0.4) (2026-03-04)
+
+[Full Changelog](https://github.com/devlooped/runfile/compare/v1.0.3...v1.0.4)
+
+:twisted_rightwards_arrows: Merged:
+
+- Add EULA and OSS badges to README [\#54](https://github.com/devlooped/runfile/pull/54) (@kzu)
+
 ## [v1.0.3](https://github.com/devlooped/runfile/tree/v1.0.3) (2026-01-17)
 
 [Full Changelog](https://github.com/devlooped/runfile/compare/v1.0.2...v1.0.3)
