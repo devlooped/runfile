@@ -81,6 +81,8 @@ The last download etag is used to avoid downloading on each run.
 
 [![Version](https://img.shields.io/nuget/vpre/gist.svg?color=royalblue)](https://www.nuget.org/packages/gist)
 [![Downloads](https://img.shields.io/nuget/dt/gist.svg?color=green)](https://www.nuget.org/packages/gist)
+[![EULA](https://img.shields.io/badge/EULA-OSMF-blue?labelColor=black&color=C9FF30)](osmfeula.txt)
+[![OSS](https://img.shields.io/github/license/devlooped/oss.svg?color=blue)](license.txt) 
 
 <!-- #gist -->
 Run C# code programs from GitHub gists.
