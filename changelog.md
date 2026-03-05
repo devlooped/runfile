@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.0.5](https://github.com/devlooped/runfile/tree/v1.0.5) (2026-03-05)
+
+[Full Changelog](https://github.com/devlooped/runfile/compare/v1.0.4...v1.0.5)
+
+:sparkles: Implemented enhancements:
+
+- Detect temp file deletion by dnx tool and re-download [\#56](https://github.com/devlooped/runfile/pull/56) (@kzu)
+
 ## [v1.0.4](https://github.com/devlooped/runfile/tree/v1.0.4) (2026-03-04)
 
 [Full Changelog](https://github.com/devlooped/runfile/compare/v1.0.3...v1.0.4)
