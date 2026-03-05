@@ -46,6 +46,8 @@ public class RemoteRunner(RemoteRef location, string toolName, Config? config = 
             return 1;
         }
 
+        var program = Path.Combine(location.TempPath, location.Path ?? "program.cs");
+
         if (contents.StatusCode != HttpStatusCode.NotModified)
         {
 #if DEBUG
@@ -67,8 +69,26 @@ public class RemoteRunner(RemoteRef location, string toolName, Config? config = 
 
             updated = true;
         }
+        else if (!File.Exists(program))
+        {
+            // Redownload if etag matches but file was cleared from local cache somehow
+            contents = await provider.GetAsync(location with { ETag = null });
+            if (!contents.IsSuccessStatusCode)
+            {
+                AnsiConsole.MarkupLine($":cross_mark: Reference [yellow]{location}[/] not found.");
+                return 1;
+            }
 
-        var program = Path.Combine(location.TempPath, location.Path ?? "program.cs");
+            await contents.ExtractToAsync(location);
+
+            if (contents.Headers.ETag?.ToString() is { } newEtag &&
+                newEtag != config.GetString(toolName, location.ToString(), "etag"))
+            {
+                config = config.SetString(toolName, location.ToString(), "etag", newEtag);
+                updated = true;
+            }
+        }
+
         if (!File.Exists(program))
         {
             if (location.Path is not null)
