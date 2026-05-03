@@ -108,8 +108,11 @@ public class RemoteRunner(RemoteRef location, string toolName, Config? config = 
 
         if (updated)
         {
-            // Clean since otherwise we sometimes get stale build outputs? :/
-            Process.Start(DotnetMuxer.Path.FullName, ["clean", "-v:q", program]).WaitForExit();
+            var objDir = Path.Combine(location.TempPath, "obj");
+            // Only clean when there are existing build artifacts; skip on freshly extracted
+            // directories (no obj/) since dotnet clean on a new dir can corrupt the lock file.
+            if (Directory.Exists(objDir))
+                Process.Start(DotnetMuxer.Path.FullName, ["clean", "-v:q", program]).WaitForExit();
         }
 
         string[] runargs = aot

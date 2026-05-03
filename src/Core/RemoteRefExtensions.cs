@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices;
-
-namespace Devlooped;
+﻿namespace Devlooped;
 
 public static class RemoteRefExtensions
 {
@@ -11,13 +9,12 @@ public static class RemoteRefExtensions
         public string EnsureTempPath() => Directory.CreateUserDirectory(location.TempPath);
     }
 
-    /// <summary>Obtains the temporary directory root, e.g., <c>/tmp/dotnet/runfile/</c>.</summary>
+    /// <summary>Obtains the temporary directory root, e.g., <c>~/.local/share/dotnet/runfile/</c>.</summary>
     static string GetTempRoot()
     {
-        // We want a location where permissions are expected to be restricted to the current user.
-        string directory = RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
-            ? Path.GetTempPath()
-            : Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+        // We use LocalApplicationData (not the system temp folder) on all platforms so that
+        // dnx's built-in cleanup of %TEMP% doesn't prune our cached repo downloads mid-run.
+        string directory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
         return Directory.CreateUserDirectory(Path.Join(directory, "dotnet", "runfile"));
     }
