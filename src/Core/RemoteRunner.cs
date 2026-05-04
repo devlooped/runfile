@@ -11,8 +11,14 @@ public class RemoteRunner(RemoteRef location, string toolName, Config? config = 
 
     public async Task<int> RunAsync(string[] args, bool aot, bool force = false)
     {
-        // Only use cached ETag if not forcing a fresh download
-        if (!force)
+        var program = Path.Combine(location.TempPath, location.Path ?? "program.cs");
+
+#if DEBUG
+        AnsiConsole.MarkupLine($"[blue]{location}[/] :backhand_index_pointing_right: [link]{program}[/]");
+#endif
+
+        // Only use cached ETag if not forcing a fresh download, and file exists locally (otherwise we'll always download)
+        if (!force && File.Exists(program))
         {
             var etag = config.GetString(toolName, location.ToString(), "etag");
             if (etag != null && Directory.Exists(location.TempPath))
@@ -46,8 +52,6 @@ public class RemoteRunner(RemoteRef location, string toolName, Config? config = 
             return 1;
         }
 
-        var program = Path.Combine(location.TempPath, location.Path ?? "program.cs");
-
         if (contents.StatusCode != HttpStatusCode.NotModified)
         {
 #if DEBUG
@@ -69,31 +73,18 @@ public class RemoteRunner(RemoteRef location, string toolName, Config? config = 
 
             updated = true;
         }
-        else if (!File.Exists(program))
-        {
-            // Redownload if etag matches but file was cleared from local cache somehow
-            contents = await provider.GetAsync(location with { ETag = null });
-            if (!contents.IsSuccessStatusCode)
-            {
-                AnsiConsole.MarkupLine($":cross_mark: Reference [yellow]{location}[/] not found.");
-                return 1;
-            }
-
-            await contents.ExtractToAsync(location);
-
-            if (contents.Headers.ETag?.ToString() is { } newEtag &&
-                newEtag != config.GetString(toolName, location.ToString(), "etag"))
-            {
-                config = config.SetString(toolName, location.ToString(), "etag", newEtag);
-                updated = true;
-            }
-        }
 
         if (!File.Exists(program))
         {
             if (location.Path is not null)
             {
                 AnsiConsole.MarkupLine($":cross_mark:  File reference not found in {location}.");
+                return 1;
+            }
+
+            if (!Directory.Exists(location.TempPath))
+            {
+                AnsiConsole.MarkupLine($":cross_mark:  Failed to download. Please retry or debug with --dnx-debug.");
                 return 1;
             }
 
