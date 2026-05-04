@@ -1,5 +1,17 @@
 # Changelog
 
+## [v1.0.6](https://github.com/devlooped/runfile/tree/v1.0.6) (2026-05-04)
+
+[Full Changelog](https://github.com/devlooped/runfile/compare/v1.0.5...v1.0.6)
+
+:sparkles: Implemented enhancements:
+
+- Simplify and harden scenario for file not found locally [\#62](https://github.com/devlooped/runfile/pull/62) (@kzu)
+
+:twisted_rightwards_arrows: Merged:
+
+- Update NuGet package references to latest versions [\#61](https://github.com/devlooped/runfile/pull/61) (@kzu)
+
 ## [v1.0.5](https://github.com/devlooped/runfile/tree/v1.0.5) (2026-03-05)
 
 [Full Changelog](https://github.com/devlooped/runfile/compare/v1.0.4...v1.0.5)
