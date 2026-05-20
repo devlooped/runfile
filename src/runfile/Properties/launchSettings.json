@@ -3,6 +3,10 @@
     "help": {
       "commandName": "Project"
     },
+    "alias": {
+      "commandName": "Project",
+      "commandLineArgs": "alias"
+    },
     "args": {
       "commandName": "Project",
       "commandLineArgs": "--aot kzu/runfile@v1 dotnet rocks"

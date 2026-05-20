@@ -56,6 +56,58 @@ The last download etag is used to avoid downloading on each run.
 
 <!-- #runfile -->
 <!-- ../../readme.md#runfile -->
+
+## Aliases
+
+<!-- include ../../readme.md#aliases -->
+<!-- #aliases -->
+
+`runfile` and `gist` share the same alias store, so a name created with one tool works with the other.
+Aliases are stored in your global `.netconfig` file (`~/.netconfig` on Linux/macOS, `%USERPROFILE%\.netconfig` on Windows).
+
+### Creating an alias
+
+Pass `--dnx-alias` (or `--alias`) when running a ref:
+
+```
+dnx TOOL REF --dnx-alias NAME
+```
+
+Examples:
+
+```
+dnx runfile kzu/sandbox@main:run.cs --dnx-alias sandbox
+dnx gist kzu/0ac826dc7de666546aaedd38e5965381 --dnx-alias demo
+```
+
+After that, use the alias instead of the full ref:
+
+```
+dnx TOOL NAME
+```
+
+Re-running with the same alias name updates the ref it points to.
+
+### Managing aliases
+
+```
+[dnx] TOOL alias
+[dnx] TOOL alias delete NAME
+[dnx] TOOL alias rename OLD NEW
+```
+
+`TOOL` is `runfile` or `gist`.
+
+| Command | Description |
+| --- | --- |
+| `alias` | List all configured aliases and the refs they point to. Refs link to the source on the web; `github.com/` is omitted when it is the default host. |
+| `alias delete NAME` | Remove an alias. |
+| `alias rename OLD NEW` | Rename an alias, keeping the same ref. Fails if `NEW` already exists. |
+
+Running a tool with no arguments shows the usage help followed by the alias table when any aliases are configured.
+
+<!-- #aliases -->
+<!-- ../../readme.md#aliases -->
 <!-- include https://github.com/devlooped/.github/raw/main/osmf.md -->
 ## Open Source Maintenance Fee
 
