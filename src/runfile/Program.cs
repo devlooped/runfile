@@ -35,6 +35,9 @@ if (args.Any(x => x == "--dnx-force"))
 }
 
 var config = Config.Build(Config.GlobalLocation);
+if (args.Length > 0 && args[0] == AliasCommands.CommandName)
+    Environment.Exit(AliasCommands.Execute(args[1..], config));
+
 if (args.Length > 0 && config.GetString("runfile", args[0]) is string aliased)
     args = [aliased, .. args[1..]];
 
@@ -52,6 +55,12 @@ if (args.Length == 0 || !RemoteRef.TryParse(args[0], out var location))
         $"""
         Usage:
             [grey][[dnx]][/] [lime]{ThisAssembly.Project.ToolCommandName}[/] [grey][[OPTIONS]][/] [bold]<repoRef>[/] [grey italic][[<appArgs>...]][/]
+            [grey][[dnx]][/] [lime]{ThisAssembly.Project.ToolCommandName}[/] [bold]alias[/] [[delete NAME]]
+
+        Commands:
+            [bold]alias[/]                    List configured ref aliases.
+            [bold]alias delete[/] NAME        Delete a ref alias.
+            [bold]alias rename[/] OLD NEW    Rename a ref alias.
 
         Arguments:
             [bold]<REPO_REF>[/]  Reference to remote file to run, with format [yellow][[host/]]owner/repo[[@ref]][[:path]][/]
@@ -74,6 +83,8 @@ if (args.Length == 0 || !RemoteRef.TryParse(args[0], out var location))
             [bold]--dnx-debug[/]       Launch the debugger before running.
             [bold]--dnx-force[/]       Force download, skipping ETag checking.
         """);
+    if (args.Length == 0)
+        AliasCommands.WriteTableIfAny(config);
     return;
 }
 
