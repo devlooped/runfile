@@ -63,7 +63,7 @@ public class GitHubAuthHandler(HttpMessageHandler inner) : DelegatingHandler(inn
 
         try
         {
-            credential = (await provider.GetCredentialAsync(input)).Credential;
+            credential = await provider.GetCredentialAsync(input);
             store.AddOrUpdate("https://github.com", credential.Account, credential.Password);
             return credential;
         }

@@ -56,7 +56,7 @@ public class AzureRepoAuthHandler(HttpMessageHandler inner) : DelegatingHandler(
 
         try
         {
-            credential = (await provider.GetCredentialAsync(input)).Credential;
+            credential = await provider.GetCredentialAsync(input);
             store.AddOrUpdate($"https://dev.azure.com/{parts[0]}", credential.Account, credential.Password);
         }
         catch (Exception)
