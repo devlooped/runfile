@@ -82,13 +82,5 @@ static string ReadAvaloniaDependency(string gcm)
         .First(pr => pr.Attribute("Include")?.Value == "Avalonia")?
         .Attribute("Version")?.Value;
 
-    if (dependency == null)
-    {
-        var versions = XDocument.Load($"https://github.com/git-ecosystem/git-credential-manager/raw/refs/tags/v{gcm}/Directory.Packages.props");
-        dependency = versions.Descendants("PackageVersion")
-            .First(pr => pr.Attribute("Include")?.Value == "Avalonia")?
-            .Attribute("Version")?.Value;
-    }
-
     return dependency ?? throw new ArgumentException("Could not find Avalonia package reference.");
 }

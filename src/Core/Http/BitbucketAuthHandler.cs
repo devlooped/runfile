@@ -65,7 +65,7 @@ public class BitbucketAuthHandler(HttpMessageHandler inner) : DelegatingHandler(
 
         try
         {
-            credential = (await provider.GetCredentialAsync(input)).Credential;
+            credential = await provider.GetCredentialAsync(input);
             store.AddOrUpdate("https://bitbucket.org", credential.Account, credential.Password);
             return credential;
         }

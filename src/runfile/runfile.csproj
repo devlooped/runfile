@@ -38,11 +38,11 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(Pkggit-credential-manager)' != ''">
-    <Reference Include="Atlassian.Bitbucket" HintPath="$(Pkggit-credential-manager)\tools\net10.0\any\Atlassian.Bitbucket.dll" />
-    <Reference Include="Microsoft.AzureRepos" HintPath="$(Pkggit-credential-manager)\tools\net10.0\any\Microsoft.AzureRepos.dll" />
-    <Reference Include="GitHub" HintPath="$(Pkggit-credential-manager)\tools\net10.0\any\GitHub.dll" />
-    <Reference Include="GitLab" HintPath="$(Pkggit-credential-manager)\tools\net10.0\any\GitLab.dll" />
-    <Reference Include="gcmcore" HintPath="$(Pkggit-credential-manager)\tools\net10.0\any\gcmcore.dll" />
+    <Reference Include="Atlassian.Bitbucket" HintPath="$(Pkggit-credential-manager)\tools\net8.0\any\Atlassian.Bitbucket.dll" />
+    <Reference Include="Microsoft.AzureRepos" HintPath="$(Pkggit-credential-manager)\tools\net8.0\any\Microsoft.AzureRepos.dll" />
+    <Reference Include="GitHub" HintPath="$(Pkggit-credential-manager)\tools\net8.0\any\GitHub.dll" />
+    <Reference Include="GitLab" HintPath="$(Pkggit-credential-manager)\tools\net8.0\any\GitLab.dll" />
+    <Reference Include="gcmcore" HintPath="$(Pkggit-credential-manager)\tools\net8.0\any\gcmcore.dll" />
   </ItemGroup>
 
   <ItemGroup>

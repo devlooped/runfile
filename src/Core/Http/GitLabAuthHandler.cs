@@ -72,7 +72,7 @@ public class GitLabAuthHandler(HttpMessageHandler inner) : DelegatingHandler(inn
 
         try
         {
-            credential = (await provider.GetCredentialAsync(input)).Credential;
+            credential = await provider.GetCredentialAsync(input);
             store.AddOrUpdate("https://gitlab.com", credential.Account, credential.Password);
             return credential;
         }
